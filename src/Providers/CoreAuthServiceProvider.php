@@ -28,13 +28,18 @@ class CoreAuthServiceProvider extends ServiceProvider
 
             // publish config
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('ca-auth.php'),
+                __DIR__ . '/../config/config.php' => config_path('core-auth.php'),
             ], 'config');
 
             // publish views
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/ca-auth'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/core-auth'),
             ], 'views');
+
+            // publish assets
+            $this->publishes([
+                __DIR__ . '/../resources/assets' => public_path('core-cdn'),
+            ], 'assets');
 
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }
@@ -53,7 +58,7 @@ class CoreAuthServiceProvider extends ServiceProvider
     {
         return [
             // 'prefix' => config('blogpackage.prefix'),
-            'middleware' => config('ca-auth.middleware', 'web'),
+            'middleware' => config('core-auth.middleware', 'web'),
         ];
     }
 }

@@ -26,7 +26,7 @@
             </div>
         </form>
 
-        <a href="{{ route('auth.login') }}">@lang('auth.login.link_button_text')</a><br>
+        <a href="{{ route('login') }}">@lang('login.link_button_text')</a><br>
 
     </div><!-- /.login-box-body -->
 @endsection

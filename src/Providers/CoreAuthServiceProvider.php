@@ -14,7 +14,8 @@ class CoreAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(AppServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
     }
 
     /**

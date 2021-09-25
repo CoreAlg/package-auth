@@ -1,4 +1,4 @@
-@extends('emails.master')
+@extends('vendor.core-auth.default.emails.master')
 
 @section('body')
 

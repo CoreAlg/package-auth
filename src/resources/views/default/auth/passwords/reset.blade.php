@@ -3,7 +3,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">@lang('auth.reset_password.page_head')</p>
 
-        <form action="{{ route('password.update') }}" method="post">
+        <form action="{{ route('password.update', $token) }}" method="post">
             @csrf
             <div class="form-group has-feedback">
                 <input type="email" name="email" value="{{ request()->input('email') }}" class="form-control" placeholder="{{ __('auth.reset_password.placeholder.email') }}">
@@ -32,7 +32,7 @@
             </div>
         </form>
 
-        <a href="{{ route('auth.login') }}">@lang('auth.login.link_button_text')</a><br>
+        <a href="{{ route('login') }}">@lang('login.link_button_text')</a><br>
 
     </div><!-- /.login-box-body -->
 @endsection

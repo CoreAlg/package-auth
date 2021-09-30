@@ -3,6 +3,7 @@
 namespace CoreAlg\Auth\Http\Controllers;
 
 use CoreAlg\Auth\Services\AuthService;
+use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -32,12 +33,20 @@ class LoginController extends Controller
 
         $response = $this->authService->authenticate($validated_data);
 
-        return response()->json($response);
+        if ($response['status'] !== 'success') {
+            $message = Helper::message($response['message'], $response['status']);
+            session()->flash('message', $message);
+            return Redirect::back()->exceptInput('password');
+        }
+
+        return Redirect::to('/home');
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
+        $message = Helper::message('You have successfully logged out.');
+        session()->flash('message', $message);
         return Redirect::to(route('login'));
     }
 }

@@ -5,9 +5,11 @@ namespace CoreAlg\Auth\Http\Controllers;
 use CoreAlg\Auth\Interfaces\HashManagerInterface;
 use CoreAlg\Auth\Mail\SendPasswordResetLink;
 use CoreAlg\Auth\Models\User;
+use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class ForgetPasswordController extends Controller
 {
@@ -40,9 +42,8 @@ class ForgetPasswordController extends Controller
 
         Mail::to($user)->send(new SendPasswordResetLink($user, $password_reset_link));
 
-        return response()->json([
-            'status' => 'success',
-            'message' => "A password reset link has been sent to your registered email."
-        ]);
+        $message = Helper::message('A password reset link has been sent to your registered email.');
+        session()->flash('message', $message);
+        return Redirect::back();
     }
 }

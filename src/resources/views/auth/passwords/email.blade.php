@@ -1,32 +1,18 @@
-@extends('auth.master', ['page_title' => __('auth.forgot_password.page_title')])
+@extends('auth.master', ['page_title' => 'Forgot Password', 'page_head' => 'Forgot Password'])
 @section('content')
-    <div class="login-box-body">
-        <p class="login-box-msg">@lang('auth.forgot_password.page_head')</p>
+<form action="{{ route('password.email') }}" method="POST">
+    @csrf
 
-        @if (session('status'))
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> @lang('messages.success')!</h4>
-                {{ session('status') }}
-            </div>
-        @endif
+    <div class="form-group mb-2">
+        <label for="email" class="control-label">Email Address</label>
+        <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email Address"/>
+        <small class="text-danger">{{ $errors->first('email') }}</small>
+    </div>
 
-        <form action="{{ route('password.email') }}" method="post">
-            @csrf
-            <div class="form-group has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="{{ __('auth.forgot_password.placeholder.email') }}">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <span class="text-red">{{ $errors->first('email') }}</span>
-            </div>
-            
-            <div class="row">
-                <div class="col-xs-12">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('auth.forgot_password.button_text')</button>
-                </div><!-- /.col -->
-            </div>
-        </form>
+    <button type="submit" class="btn btn-primary">Get Password Reset Link</button>
+</form>
 
-        <a href="{{ route('login') }}">@lang('login.link_button_text')</a><br>
-
-    </div><!-- /.login-box-body -->
+<div>
+    <a href="{{ route('login') }}">Sign In</a>
+</div>
 @endsection

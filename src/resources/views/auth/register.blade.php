@@ -1,45 +1,45 @@
-@extends('auth.master', ['page_title' => __('login.page_title')])
+@extends('auth.master', ['page_title' => 'Register', 'page_head' => 'Register'])
 @section('content')
-    <div class="login-box-body">
-        <p class="login-box-msg">@lang('login.page_head')</p>
+<form action="{{ route('register.store') }}" method="POST">
+    @csrf
+    <div class="form-group mb-2">
+        <label for="name" class="control-label">Name</label>
+        <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Name"/>
+        <small class="text-danger">{{ $errors->first('name') }}</small>
+    </div>
 
-        @if (session('status'))
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> @lang('messages.success')!</h4>
-                {{ session('status') }}
-            </div>
-        @endif
+    <div class="form-group mb-2">
+        <label for="email" class="control-label">Email Address</label>
+        <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email Address"/>
+        <small class="text-danger">{{ $errors->first('email') }}</small>
+    </div>
 
-        <form action="{{ route('register.store') }}" method="post">
-            @csrf
-            <div class="form-group has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="{{ __('login.placeholder.email') }}">
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                <span class="text-red">{{ $errors->first('email') }}</span>
-            </div>
-            
-            <div class="form-group has-feedback">
-                <input type="password" name="password" class="form-control" placeholder="{{ __('login.placeholder.password') }}">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                <span class="text-red">{{ $errors->first('password') }}</span>
-            </div>
-            
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> @lang('login.remember_me')
-                        </label>
-                    </div>
-                </div><!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('login.button_text')</button>
-                </div><!-- /.col -->
-            </div>
-        </form>
+    <div class="form-group mb-2">
+        <label for="password" class="control-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password"/>
+        <small class="text-danger">{{ $errors->first('password') }}</small>
+    </div>
 
-        <a href="{{ route('password.email') }}">@lang('auth.forgot_password.link_button_text')</a><br>
+    <div class="form-group mb-2">
+        <label for="password_confirmation" class="control-label">Confirm Password</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password"/>
+        <small class="text-danger">{{ $errors->first('password_confirmation') }}</small>
+    </div>
 
-    </div><!-- /.login-box-body -->
+    <div class="form-group mb-2">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="agree_terms">
+            <label class="form-check-label" for="agree_terms">
+                Agree Terms&#39;Conditions
+            </label>
+        </div>
+        <small class="text-danger">{{ $errors->first('agree_terms') }}</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div>
+    <a href="{{ route('login') }}">Sign In</a>
+</div>
 @endsection

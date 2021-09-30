@@ -4,8 +4,10 @@ namespace CoreAlg\Auth\Http\Controllers;
 
 use CoreAlg\Auth\Events\NewAccountCreated;
 use CoreAlg\Auth\Models\User;
+use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -36,9 +38,8 @@ class RegisterController extends Controller
 
         event(new NewAccountCreated($user));
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Operation Succeed, please check your email to active your account.'
-        ]);
+        $message = Helper::message('Operation Succeed, please check your email to active your account.');
+        session()->flash('message', $message);
+        return Redirect::back()->exceptInput('password');
     }
 }

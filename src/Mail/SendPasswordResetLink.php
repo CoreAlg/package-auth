@@ -32,7 +32,7 @@ class SendPasswordResetLink extends Mailable
      */
     public function build()
     {
-        $blade = "vendor.core-auth." . config('core-auth.view-template') . ".emails.password-reset";
+        $blade = "emails.password-reset";
 
         return $this->view($blade)->subject(config('app.name') . ": Reset Password");
     }

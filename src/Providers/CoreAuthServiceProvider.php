@@ -27,20 +27,20 @@ class CoreAuthServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
 
-            // publish config
-            $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('core-auth.php'),
-            ], 'config');
+            // // publish config
+            // $this->publishes([
+            //     __DIR__ . '/../config/config.php' => config_path('core-auth.php'),
+            // ], 'config');
 
             // publish views
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/'),
             ], 'views');
 
-            // publish assets
-            $this->publishes([
-                __DIR__ . '/../resources/assets' => public_path('core-cdn'),
-            ], 'assets');
+            // // publish assets
+            // $this->publishes([
+            //     __DIR__ . '/../resources/assets' => public_path('core-cdn'),
+            // ], 'assets');
 
             $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         }

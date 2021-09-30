@@ -4,8 +4,99 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60d237c9148adec6228c33a65dfb6a67",
-    "packages": [],
+    "content-hash": "2408124d6e20fbab9273f938ccbbd0e4",
+    "packages": [
+        {
+            "name": "corealg/helper",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CoreAlg/package-helper.git",
+                "reference": "6dacef15b442a678a7d9ef7a7d18cf83f8041b2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CoreAlg/package-helper/zipball/6dacef15b442a678a7d9ef7a7d18cf83f8041b2f",
+                "reference": "6dacef15b442a678a7d9ef7a7d18cf83f8041b2f",
+                "shasum": ""
+            },
+            "require": {
+                "ntwindia/ntwindia": "^1.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CoreAlg\\Helper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mizanur Rahman",
+                    "email": "mizan3008@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package provides some common helper functions that we need regularly for almost every project.",
+            "keywords": [
+                "helper",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/CoreAlg/package-helper/issues",
+                "source": "https://github.com/CoreAlg/package-helper/tree/v1.0.0"
+            },
+            "time": "2021-09-27T10:45:07+00:00"
+        },
+        {
+            "name": "ntwindia/ntwindia",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swashata/php-number-to-word-india.git",
+                "reference": "ecfe93f92cfa727d5def087d528c07c1d6426022"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swashata/php-number-to-word-india/zipball/ecfe93f92cfa727d5def087d528c07c1d6426022",
+                "reference": "ecfe93f92cfa727d5def087d528c07c1d6426022",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NTWIndia\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "Convert number to word in Indian English.",
+            "homepage": "https://github.com/swashata/php-number-to-word-india",
+            "keywords": [
+                "number",
+                "number-to-words",
+                "words"
+            ],
+            "support": {
+                "issues": "https://github.com/swashata/php-number-to-word-india/issues",
+                "source": "https://github.com/swashata/php-number-to-word-india/tree/master"
+            },
+            "time": "2017-08-09T18:05:34+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "brick/math",
@@ -7659,7 +7750,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.0"
+    },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

@@ -4,8 +4,10 @@ namespace CoreAlg\Auth\Http\Controllers;
 
 use CoreAlg\Auth\Interfaces\HashManagerInterface;
 use CoreAlg\Auth\Models\User;
+use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class ResetPasswordController extends Controller
 {
@@ -41,9 +43,8 @@ class ResetPasswordController extends Controller
             'password' => bcrypt($validated_data['password'])
         ]);
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Your password has been successfully updated.'
-        ]);
+        $message = Helper::message('Your password has been successfully updated.');
+        session()->flash('message', $message);
+        return Redirect::to(route('login'));
     }
 }

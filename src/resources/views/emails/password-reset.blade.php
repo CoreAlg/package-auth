@@ -2,7 +2,7 @@
 
 @section('body')
 
-    <h2>Hi {{ $name }}!</h2>
+    <h2>Hi {{ $user->name }}!</h2>
 
     <p>
         Click this link to reset your account password:

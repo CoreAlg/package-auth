@@ -32,7 +32,7 @@ class SendAccountVerificationLink extends Mailable
      */
     public function build()
     {
-        $blade = "vendor.core-auth." . config('core-auth.view-template') . ".emails.account-verification";
+        $blade = "emails.account-verification";
         return $this->view($blade)->subject(config('app.name') . ": Active Account");
     }
 }

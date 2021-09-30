@@ -1,10 +1,10 @@
 <?php
 
-use CoreAlg\Auth\Http\Controllers\AccountActivationController;
-use CoreAlg\Auth\Http\Controllers\ForgetPasswordController;
-use CoreAlg\Auth\Http\Controllers\LoginController;
-use CoreAlg\Auth\Http\Controllers\RegisterController;
-use CoreAlg\Auth\Http\Controllers\ResetPasswordController;
+use CoreAlg\Auth\Http\Controllers\Auth\AccountActivationController;
+use CoreAlg\Auth\Http\Controllers\Auth\ForgetPasswordController;
+use CoreAlg\Auth\Http\Controllers\Auth\LoginController;
+use CoreAlg\Auth\Http\Controllers\Auth\RegisterController;
+use CoreAlg\Auth\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');

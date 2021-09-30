@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.0",
-        "corealg/helper": "dev-main"
+        "corealg/helper": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",

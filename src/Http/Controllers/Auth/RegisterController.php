@@ -1,12 +1,12 @@
 <?php
 
-namespace CoreAlg\Auth\Http\Controllers;
+namespace CoreAlg\Auth\Http\Controllers\Auth;
 
 use CoreAlg\Auth\Events\NewAccountCreated;
+use CoreAlg\Auth\Http\Controllers\Controller;
 use CoreAlg\Auth\Models\User;
 use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller

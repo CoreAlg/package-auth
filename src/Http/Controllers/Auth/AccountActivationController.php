@@ -1,11 +1,11 @@
 <?php
 
-namespace CoreAlg\Auth\Http\Controllers;
+namespace CoreAlg\Auth\Http\Controllers\Auth;
 
+use CoreAlg\Auth\Http\Controllers\Controller;
 use CoreAlg\Auth\Interfaces\HashManagerInterface;
 use CoreAlg\Auth\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 

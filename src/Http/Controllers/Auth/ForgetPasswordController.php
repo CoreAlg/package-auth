@@ -1,13 +1,13 @@
 <?php
 
-namespace CoreAlg\Auth\Http\Controllers;
+namespace CoreAlg\Auth\Http\Controllers\Auth;
 
+use CoreAlg\Auth\Http\Controllers\Controller;
 use CoreAlg\Auth\Interfaces\HashManagerInterface;
 use CoreAlg\Auth\Mail\SendPasswordResetLink;
 use CoreAlg\Auth\Models\User;
 use CoreAlg\Helper\Helper;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 

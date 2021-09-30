@@ -11,18 +11,16 @@ use Illuminate\Support\Facades\Mail;
 
 class ForgetPasswordController extends Controller
 {
-    private $template;
     private $hashManager;
 
     public function __construct(HashManagerInterface $hashManager)
     {
-        $this->template = config('core-auth.view-template', 'default');
         $this->hashManager = $hashManager;
     }
 
     public function email(Request $request)
     {
-        return view("vendor.core-auth.{$this->template}.auth.passwords.email");
+        return view("auth.passwords.email");
     }
 
     public function sendPasswordResetLink(Request $request)

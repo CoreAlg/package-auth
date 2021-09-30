@@ -16,8 +16,7 @@
     "autoload": {
         "psr-4": {
             "CoreAlg\\Auth\\": "src",
-            "CoreAlg\\Auth\\Tests\\": "tests",
-            "CoreAlg\\Auth\\Database\\Factories\\": "src/database/factories"
+            "CoreAlg\\Auth\\Tests\\": "tests"
         }
     },
     "extra": {

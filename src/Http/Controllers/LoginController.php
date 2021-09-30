@@ -10,18 +10,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
-    private $template;
     private $authService;
 
     public function __construct(AuthService $authService)
     {
-        $this->template = config('core-auth.view-template', 'default');
         $this->authService = $authService;
     }
 
     public function login(Request $request)
     {
-        return view("vendor.core-auth.{$this->template}.auth.login");
+        return view("auth.login");
     }
 
     public function authenticate(Request $request)

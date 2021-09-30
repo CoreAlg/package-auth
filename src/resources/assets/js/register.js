@@ -11,8 +11,7 @@ $(document).ready(function () {
                 displayValidationError(response);
                 return false;
             }
-
-            tostMe(response.json.message);
+            
             return true;
 
             // // I am done, let's have a vacation (cool)

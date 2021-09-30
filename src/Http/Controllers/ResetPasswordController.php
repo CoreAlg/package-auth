@@ -9,12 +9,10 @@ use Illuminate\Routing\Controller;
 
 class ResetPasswordController extends Controller
 {
-    private $template;
     private $hashManager;
 
     public function __construct(HashManagerInterface $hashManager)
     {
-        $this->template = config('core-auth.view-template', 'default');
         $this->hashManager = $hashManager;
     }
 
@@ -25,7 +23,7 @@ class ResetPasswordController extends Controller
         $user = json_decode($data);
         $email = $user->email;
 
-        return view("vendor.core-auth.{$this->template}.auth.passwords.reset", compact(['token', 'email']));
+        return view("auth.passwords.reset", compact(['token', 'email']));
     }
 
     public function updatePassword(Request $request, string $token)

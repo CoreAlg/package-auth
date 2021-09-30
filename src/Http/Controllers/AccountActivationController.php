@@ -11,13 +11,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class AccountActivationController extends Controller
 {
-    private $template;
     private $hashManager;
 
     public function __construct(HashManagerInterface $hashManager)
     {
         $this->hashManager = $hashManager;
-        $this->template = config('core-auth.view-template', 'default');
     }
 
     public function activeAccount(Request $request, string $token)

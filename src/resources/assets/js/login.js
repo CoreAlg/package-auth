@@ -14,7 +14,6 @@ $(document).ready(function () {
 
             if (response.code === 200) {
                 if (response.json.status !== 'success') {
-                    tostMe(response.json.message, response.json.status);
                     return false;
                 }
 

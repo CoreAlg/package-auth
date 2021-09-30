@@ -40,27 +40,7 @@ function displayValidationError(response) {
         $("#ve-" + index).html(value[0]);
     });
 
-    tostMe('Validation Error.', 'error');
-
     return false;
-}
-
-function tostMe(message, type = 'success') {
-
-    var title = "Success";
-    var class_name = 'success';
-
-    if (type !== 'success') {
-        var title = "Error";
-        class_name = 'danger';
-    }
-    console.log(type);
-    $(document).Toasts('create', {
-        class: 'bg-' + class_name,
-        title: title,
-        // subtitle: subtitle,
-        body: message
-    })
 }
 
 $(document).ready(function (e) {

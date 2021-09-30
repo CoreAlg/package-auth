@@ -34,7 +34,7 @@ class CoreAuthServiceProvider extends ServiceProvider
 
             // publish views
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/core-auth'),
+                __DIR__ . '/../resources/views' => resource_path('views/'),
             ], 'views');
 
             // publish assets

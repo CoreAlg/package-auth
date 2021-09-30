@@ -1,7 +1,8 @@
 #!/bin/bash
 
 cd /var/www/html && rm -rf public/core-cdn
-cd /var/www/html && rm -rf resources/views/vendor/core-auth
+cd /var/www/html && rm -rf resources/views/auth
+cd /var/www/html && rm -rf resources/views/emails
 cd /var/www/html && rm -rf config/core-auth.php
 cd /var/www/html && rm -rf resources/lang/en/core-auth.php
 

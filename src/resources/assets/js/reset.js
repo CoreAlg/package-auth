@@ -12,8 +12,6 @@ $(document).ready(function () {
                 return false;
             }
 
-            tostMe(response.json.message, response.json.status);
-
             return true;
 
             // // I am done, let's have a vacation (cool)
@@ -35,8 +33,6 @@ $(document).ready(function () {
                 displayValidationError(response);
                 return false;
             }
-
-            tostMe(response.json.message, response.json.status);
 
             return true;
 

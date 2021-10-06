@@ -16,8 +16,10 @@ class SendAccountVerificationLinkTest extends TestCase
     {
         Mail::fake();
 
-        $user = User::factory()->create([
-            'name' => 'Mizanur'
+        $user = User::create([
+            'name' => 'Mizanur',
+            'email' => 'mizan3008@gmail.com',
+            'password' => 'secret'
         ]);
 
         $activation_link = route('activeAccount', 'token');

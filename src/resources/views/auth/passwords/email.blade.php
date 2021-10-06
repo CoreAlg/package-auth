@@ -1,6 +1,6 @@
 @extends('auth.master', ['page_title' => 'Forgot Password', 'page_head' => 'Forgot Password'])
 @section('content')
-<form action="{{ route('password.email') }}" method="POST">
+<form action="{{ route('password.sendResetLink') }}" method="POST">
     @csrf
 
     <div class="form-group mb-2">

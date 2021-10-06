@@ -16,8 +16,10 @@ class SendPasswordResetLinkTest extends TestCase
     {
         Mail::fake();
 
-        $user = User::factory()->create([
-            'name' => 'Mizanur'
+        $user = User::create([
+            'name' => 'Mizanur',
+            'email' => 'mizan3008@gmail.com',
+            'password' => 'secret'
         ]);
 
         $password_reset_link = route('password.reset', 'token');

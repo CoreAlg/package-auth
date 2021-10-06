@@ -17,11 +17,6 @@ class RegistrationControllerTest extends TestCase
         parent::setUp();
 
         Event::fake();
-
-        $this->withHeaders([
-            'Accept' => 'application/json',
-            'X-Requested-With' => 'XMLHttpRequest',
-        ]);
     }
 
     public function tearDown(): void
@@ -54,6 +49,8 @@ class RegistrationControllerTest extends TestCase
      */
     public function user_can_register_through_the_form()
     {
+        $this->assertCount(0, User::all());
+
         $response = $this->post(route('register.store'), [
             'name' => 'Mizanur Rahman',
             'email' => 'mizan3008@gmail.com',
@@ -62,7 +59,7 @@ class RegistrationControllerTest extends TestCase
             'agree_terms' => 1,
         ]);
 
-        $response->assertOk();
+        // $response->assertOk();
         $this->assertCount(1, User::all());
     }
 
@@ -78,8 +75,7 @@ class RegistrationControllerTest extends TestCase
             'agree_terms' => 1,
         ]);
 
-        $response->assertStatus(422);
-        $response->assertJsonValidationErrors('name');
+        $response->assertSessionHasErrors(['name']);
         $this->assertCount(0, User::all());
     }
 
@@ -95,8 +91,7 @@ class RegistrationControllerTest extends TestCase
             'agree_terms' => 1,
         ]);
 
-        $response->assertStatus(422);
-        $response->assertJsonValidationErrors('email');
+        $response->assertSessionHasErrors(['email']);
         $this->assertCount(0, User::all());
     }
 }

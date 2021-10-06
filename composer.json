@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.0",
-        "corealg/helper": "^1.0"
+        "corealg/helper": "dev-main"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -33,5 +33,11 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-f": "vendor/bin/phpunit --filter"
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../package-helper"
+        }
+    ]
 }

@@ -13,7 +13,12 @@ class UserTest extends TestCase
      */
     function a_user_has_a_name()
     {
-        $user = User::factory()->create(['name' => 'Fake Name']);
-        $this->assertEquals('Fake Name', $user->name);
+        $user = User::create([
+            'name' => 'Mizanur',
+            'email' => 'mizan3008@gmail.com',
+            'password' => 'secret'
+        ]);
+
+        $this->assertEquals('Mizanur', $user->name);
     }
 }

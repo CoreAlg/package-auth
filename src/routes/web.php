@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'register'], function () {
     Route::get('/', [RegisterController::class, 'register'])->name('register');
@@ -18,7 +18,7 @@ Route::group(['prefix' => 'register'], function () {
 
 Route::group(['prefix' => 'password'], function () {
     Route::get('/email', [ForgetPasswordController::class, 'email'])->name('password.email');
-    Route::post('/email', [ForgetPasswordController::class, 'sendPasswordResetLink'])->name('password.email');
+    Route::post('/email', [ForgetPasswordController::class, 'sendPasswordResetLink'])->name('password.sendResetLink');
     Route::get('/reset/{token}', [ResetPasswordController::class, 'reset'])->name('password.reset');
     Route::post('/reset/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
 });

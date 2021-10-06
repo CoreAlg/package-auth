@@ -13,7 +13,10 @@ cd /var/www/html && php artisan vendor:publish --provider="CoreAlg\Auth\Provider
 
 # php artisan migrate:fresh
 
-cd /var/www/html && php artisan cache:clear
-cd /var/www/html && php artisan view:clear
-cd /var/www/html && php artisan route:clear
-cd /var/www/html && php artisan config:clear
+# cd /var/www/html && php artisan cache:clear
+# cd /var/www/html && php artisan view:clear
+# cd /var/www/html && php artisan route:clear
+# cd /var/www/html && php artisan config:clear
+cd /var/www/html && php artisan optimize
+
+cd /var/www/html && php artisan migrate:fresh

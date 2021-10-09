@@ -3,9 +3,25 @@
 <form action="{{ route('register.store') }}" method="POST">
     @csrf
     <div class="form-group mb-2">
-        <label for="name" class="control-label">Name</label>
-        <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Name"/>
-        <small class="text-danger">{{ $errors->first('name') }}</small>
+        <label for="first_name" class="control-label">First Name</label>
+        <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}" placeholder="First Name"/>
+        <small class="text-danger">{{ $errors->first('first_name') }}</small>
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="last_name" class="control-label">Last Name</label>
+        <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}" placeholder="Last Name"/>
+        <small class="text-danger">{{ $errors->first('last_name') }}</small>
+    </div>
+
+    <div class="form-group mb-2">
+        <label for="gender" class="control-label">Gender</label>
+        <select name="gender" class="form-control">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <small class="text-danger">{{ $errors->first('gender') }}</small>
     </div>
 
     <div class="form-group mb-2">

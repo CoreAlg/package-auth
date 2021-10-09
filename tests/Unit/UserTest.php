@@ -14,11 +14,14 @@ class UserTest extends TestCase
     function a_user_has_a_name()
     {
         $user = User::create([
-            'name' => 'Mizanur',
+            'first_name' => 'Mizanur',
+            'last_name' => 'Rahman',
             'email' => 'mizan3008@gmail.com',
             'password' => 'secret'
         ]);
 
-        $this->assertEquals('Mizanur', $user->name);
+        $this->assertEquals('Mizanur', $user->first_name);
+        $this->assertEquals('Rahman', $user->last_name);
+        $this->assertEquals('mizan3008@gmail.com', $user->email);
     }
 }

@@ -2,7 +2,7 @@
 
 @section('body')
 
-    <h2>Hi {{ $user->name }}!</h2>
+    <h2>Hi {{ $user->first_name }}!</h2>
     <strong>We're delighted to have you on board</strong>
 
     <p>

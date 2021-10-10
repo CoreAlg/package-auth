@@ -14,6 +14,7 @@ class User extends Model
         'last_name',
         'gender',
         'email',
-        'password'
+        'password',
+        'active',
     ];
 }

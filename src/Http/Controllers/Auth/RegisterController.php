@@ -38,6 +38,7 @@ class RegisterController extends Controller
             'gender' => $validated_data['gender'] ?? '',
             'email' => $validated_data['email'],
             'password' => bcrypt($validated_data['password']),
+            'active' => false,
         ]);
 
         event(new NewAccountCreated($user));

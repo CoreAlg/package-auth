@@ -27,6 +27,15 @@ class AuthService
 
         $user = auth()->user();
 
+        if (!$user->active) {
+            Auth::logout();
+            return [
+                'status' => 'error',
+                'message' => 'Your account is not active, please contact support.',
+                'data' => null,
+            ];
+        }
+
         if (is_null($user->email_verified_at)) {
             Auth::logout();
             return [

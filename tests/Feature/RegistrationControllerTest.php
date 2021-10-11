@@ -30,7 +30,9 @@ class RegistrationControllerTest extends TestCase
     function an_event_is_emitted_when_a_new_user_is_registered()
     {
         $this->post(route('register.store'), [
-            'name' => 'Mizanur Rahman',
+            'first_name' => 'Mizanur',
+            'last_name' => 'Rahman',
+            'gender' => 'male',
             'email' => 'mizan3008@gmail',
             'password' => 'password',
             'password_confirmation' => 'password',
@@ -52,7 +54,9 @@ class RegistrationControllerTest extends TestCase
         $this->assertCount(0, User::all());
 
         $response = $this->post(route('register.store'), [
-            'name' => 'Mizanur Rahman',
+            'first_name' => 'Mizanur',
+            'last_name' => 'Rahman',
+            'gender' => 'male',
             'email' => 'mizan3008@gmail.com',
             'password' => 'password',
             'password_confirmation' => 'password',
@@ -66,7 +70,7 @@ class RegistrationControllerTest extends TestCase
     /**
      * @test
      */
-    public function name_is_required_to_register_through_the_form()
+    public function first_name_is_required_to_register_through_the_form()
     {
         $response = $this->post(route('register.store'), [
             'email' => 'mizan3008@gmail.com',
@@ -75,7 +79,7 @@ class RegistrationControllerTest extends TestCase
             'agree_terms' => 1,
         ]);
 
-        $response->assertSessionHasErrors(['name']);
+        $response->assertSessionHasErrors(['first_name']);
         $this->assertCount(0, User::all());
     }
 
@@ -85,7 +89,8 @@ class RegistrationControllerTest extends TestCase
     public function email_is_required_to_register_through_the_form()
     {
         $response = $this->post(route('register.store'), [
-            'name' => 'Mizanur Rahman',
+            'first_name' => 'Mizanur',
+            'last_name' => 'Rahman',
             'password' => 'password',
             'password_confirmation' => 'password',
             'agree_terms' => 1,

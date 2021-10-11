@@ -10,13 +10,11 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'gender',
         'email',
-        'password'
+        'password',
+        'active',
     ];
-
-    protected static function newFactory()
-    {
-        return \CoreAlg\Auth\Database\Factories\UserFactory::new();
-    }
 }

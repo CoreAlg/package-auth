@@ -23,7 +23,9 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validated_data = $request->validate([
-            'name' => 'required|max:100',
+            'first_name' => 'required|max:100',
+            'last_name' => 'nullable|max:100',
+            'gender' => 'nullable|in:male,female,other',
             'email' => 'required|email|max:50|unique:users',
             'password' => 'required|max:16',
             'password_confirmation' => 'required|max:12|same:password',
@@ -31,9 +33,12 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $validated_data['name'],
+            'first_name' => $validated_data['first_name'],
+            'last_name' => $validated_data['last_name'] ?? null,
+            'gender' => $validated_data['gender'] ?? '',
             'email' => $validated_data['email'],
             'password' => bcrypt($validated_data['password']),
+            'active' => false,
         ]);
 
         event(new NewAccountCreated($user));

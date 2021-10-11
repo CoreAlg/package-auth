@@ -17,7 +17,8 @@ class SendAccountVerificationLinkTest extends TestCase
         Mail::fake();
 
         $user = User::create([
-            'name' => 'Mizanur',
+            'first_name' => 'Mizanur',
+            'last_name' => 'Rahman',
             'email' => 'mizan3008@gmail.com',
             'password' => 'secret'
         ]);
@@ -29,7 +30,7 @@ class SendAccountVerificationLinkTest extends TestCase
         Mail::to($user->email)->send(new SendAccountVerificationLink($user, $activation_link));
 
         Mail::assertSent(SendAccountVerificationLink::class, function ($mail) use ($user, $activation_link) {
-            return $mail->activation_link === $activation_link && $mail->user->name === 'Mizanur';
+            return $mail->activation_link === $activation_link && $mail->user->first_name === 'Mizanur' && $mail->user->last_name === 'Rahman';
         });
     }
 }

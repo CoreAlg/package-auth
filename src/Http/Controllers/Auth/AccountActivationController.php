@@ -47,7 +47,7 @@ class AccountActivationController extends Controller
 
         Auth::loginUsingId($id);
 
-        User::whereId($id)->update(['email_verified_at' => now()]);
+        User::whereId($id)->update(['email_verified_at' => now(), 'active' => true]);
 
         return Redirect::to(config('redirect_after_active_account', '/home'));
     }

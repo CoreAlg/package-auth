@@ -17,7 +17,7 @@ Route::group(['prefix' => 'register'], function () {
 });
 
 Route::group(['prefix' => 'password'], function () {
-    Route::get('/email', [ForgetPasswordController::class, 'email'])->name('password.email');
+    Route::get('/email', [ForgetPasswordController::class, 'email'])->name('password.request');
     Route::post('/email', [ForgetPasswordController::class, 'sendPasswordResetLink'])->name('password.sendResetLink');
     Route::get('/reset/{token}', [ResetPasswordController::class, 'reset'])->name('password.reset');
     Route::post('/reset/{token}', [ResetPasswordController::class, 'updatePassword'])->name('password.update');

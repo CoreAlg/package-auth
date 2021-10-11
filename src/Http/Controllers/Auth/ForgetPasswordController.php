@@ -20,12 +20,12 @@ class ForgetPasswordController extends Controller
         $this->hashManager = $hashManager;
     }
 
-    public function email(Request $request)
+    public function request(Request $request)
     {
         return view("auth.passwords.email");
     }
 
-    public function sendPasswordResetLink(Request $request)
+    public function email(Request $request)
     {
         $validated_data = $request->validate([
             'email' => 'required|email|max:50|exists:users',
